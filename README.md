@@ -1,48 +1,40 @@
-.SYNOPSIS
-    Active Directory Kerberos Encryption Type Auditor and Migration Tool with Event Log Analysis
-    
-.DESCRIPTION
-    Audits AD accounts using RC4 encryption, migrates them to AES128/AES256,
-    validates Kerberos ticket encryption types across Domain Controllers, and
-    analyzes Security Event Logs for actual RC4 usage patterns.
-    Generates dynamic HTML reports with filtering and visualization.
-    
-.PARAMETER DryRun
-    When enabled (default), simulates changes without applying them.
-    
-.PARAMETER ExportPath
-    Path where the main HTML report will be saved.
-    
-.PARAMETER EventLogReportPath
-    Path where the event log analysis report will be saved.
-    
-.PARAMETER IncludeComputers
-    Include computer accounts in the audit and migration.
-    
-.PARAMETER TargetEncryption
-    Target encryption type. Valid values: AES256, AES128_AES256 (default)
-    
-.PARAMETER ExcludeOUs
-    Array of OUs to exclude from migration (e.g., service accounts)
-    
-.PARAMETER EventLogHours
-    Number of hours to analyze in the Security Event Log (default: 24)
-    
-.PARAMETER MaxEvents
-    Maximum number of events to retrieve from the log (default: 50000)
-    
-.PARAMETER AnalyzeAllDCs
-    Scan event logs from all Domain Controllers (not just local)
-    
-.EXAMPLE
-    .\Invoke-KerberosEncryptionAudit.ps1
-    Runs in DryRun mode with default settings
-    
-.EXAMPLE
-    .\Invoke-KerberosEncryptionAudit.ps1 -DryRun:$false -EventLogHours 48
-    Executes migration and analyzes last 48 hours of events
-    
-.NOTES
-    Author: Logicc AI for Ollischer IT Consulting
-    Date: 17.10.2025
-    Requires: Active Directory PowerShell Module, Domain Admin rights
+## ⚠️ Important Disclaimer
+
+### AI-Assisted Development
+These scripts have been developed with the assistance of **Claude 4.5 Sonnet (Anthropic AI)** and rigorously tested in real-world enterprise environments to ensure functionality, reliability, and adherence to best practices.
+
+### Testing & Validation
+All scripts have been validated through:
+- ✅ Real-world Active Directory environments
+- ✅ Multiple scenarios and edge cases
+- ✅ Troubleshooting actual production issues
+- ✅ Iterative refinement based on practical use
+
+### Usage Guidelines
+
+> **⚠️ CRITICAL: These scripts are provided "AS IS" without warranty of any kind.**
+
+**Before deploying to production:**
+
+1. **Test thoroughly** in a non-production/lab environment first
+2. **Review the code** to understand what it does
+3. **Backup your systems** before making any changes
+4. **Validate results** in your specific environment
+5. **Use with caution** - especially scripts that modify AD objects
+
+**The author(s) and contributors assume NO responsibility for:**
+- Data loss or corruption
+- System downtime or service interruptions  
+- Security vulnerabilities introduced through misconfiguration
+- Any damages resulting from the use of these scripts
+
+### Recommended Approach
+
+```powershell
+# Always start with DryRun mode when available
+.\Script.ps1 -DryRun:$true
+
+# Review the output and logs carefully
+# Only proceed to live execution after thorough validation
+
+Your IT environment is unique - always adapt scripts to your specific needs and policies!
