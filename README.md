@@ -28,6 +28,8 @@ All scripts have been validated through:
 - Security vulnerabilities introduced through misconfiguration
 - Any damages resulting from the use of these scripts
 
+### Your IT environment is unique - always adapt scripts to your specific needs and policies!
+
 ### Recommended Approach
 
 ```powershell
@@ -36,5 +38,3 @@ All scripts have been validated through:
 
 # Review the output and logs carefully
 # Only proceed to live execution after thorough validation
-
-Your IT environment is unique - always adapt scripts to your specific needs and policies!
